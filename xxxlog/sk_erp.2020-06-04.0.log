@@ -1,0 +1,19 @@
+2020-06-04 03:59:10.887 [main] INFO  c.n.p.PersonalmanagementsystemApplication - Starting PersonalmanagementsystemApplication on ChengXX-PC with PID 6036 (E:\springboot_workspace\personalmanagementsystem\target\classes started by Administrator in E:\springboot_workspace\personalmanagementsystem)
+2020-06-04 03:59:10.892 [main] INFO  c.n.p.PersonalmanagementsystemApplication - The following profiles are active: dev
+2020-06-04 03:59:12.844 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-06-04 03:59:12.857 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-06-04 03:59:12.858 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-06-04 03:59:12.859 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-06-04 03:59:13.048 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-06-04 03:59:13.049 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2050 ms
+2020-06-04 03:59:13.649 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-04 03:59:13.742 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2020-06-04 03:59:13.833 [main] WARN  org.thymeleaf.templatemode.TemplateMode - [THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020-06-04 03:59:13.976 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2020-06-04 03:59:14.014 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2020-06-04 03:59:14.029 [main] INFO  c.n.p.PersonalmanagementsystemApplication - Started PersonalmanagementsystemApplication in 4.35 seconds (JVM running for 6.348)
+2020-06-04 03:59:40.216 [http-nio-8080-exec-1] INFO  org.apache.tomcat.util.http.parser.Cookie - A cookie header was received [1590715751] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-06-04 03:59:40.256 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-06-04 03:59:40.256 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-06-04 03:59:40.301 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 44 ms
