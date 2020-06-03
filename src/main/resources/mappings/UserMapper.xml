@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.neuedu.personalmanagementsystem.mapper.UserMapper">
+
+    <select id="getUserBynameandpsw" resultType="user">
+        SELECT * FROM User
+        WHERE UserName=#{uname}  AND  Password =#{psw} limit 0,1;
+    </select>
+    <select id="getAllUserBykey" resultType="user">
+       SELECT * FROM User
+       <where>
+           <if test="keystr!=null">
+              UserName LIKE concat('%',#{keystr},'%')
+           </if>
+       </where>
+
+    </select>
+
+    <update id="updateUser" parameterType="user">
+        UPDATE User SET
+        UserName=#{username},
+        Password=#{password}
+        WHERE ID=#{id}
+    </update>
+
+    <delete id="delUserbyId" parameterType="int" >
+        delete from user where ID=#{value}
+    </delete>
+</mapper>
