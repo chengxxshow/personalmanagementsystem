@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.personalmanagementsystem.mapper.EmployeeMapper">
+  <resultMap id="BaseResultMap" type="com.neuedu.personalmanagementsystem.entity.Employee">
+    <id column="emp_id" jdbcType="INTEGER" property="empId" />
+    <result column="emp_name" jdbcType="VARCHAR" property="empName" />
+    <result column="emp_hiredate" jdbcType="DATE" property="empHiredate" />
+    <result column="manager_id" jdbcType="INTEGER" property="managerId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    emp_id, emp_name, emp_hiredate, manager_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from employee
+    where emp_id = #{empId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from employee
+    where emp_id = #{empId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.neuedu.personalmanagementsystem.entity.Employee">
+    insert into employee (emp_id, emp_name, emp_hiredate, 
+      manager_id)
+    values (#{empId,jdbcType=INTEGER}, #{empName,jdbcType=VARCHAR}, #{empHiredate,jdbcType=DATE}, 
+      #{managerId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.neuedu.personalmanagementsystem.entity.Employee">
+    insert into employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empId != null">
+        emp_id,
+      </if>
+      <if test="empName != null">
+        emp_name,
+      </if>
+      <if test="empHiredate != null">
+        emp_hiredate,
+      </if>
+      <if test="managerId != null">
+        manager_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empId != null">
+        #{empId,jdbcType=INTEGER},
+      </if>
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empHiredate != null">
+        #{empHiredate,jdbcType=DATE},
+      </if>
+      <if test="managerId != null">
+        #{managerId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.personalmanagementsystem.entity.Employee">
+    update employee
+    <set>
+      <if test="empName != null">
+        emp_name = #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empHiredate != null">
+        emp_hiredate = #{empHiredate,jdbcType=DATE},
+      </if>
+      <if test="managerId != null">
+        manager_id = #{managerId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where emp_id = #{empId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.neuedu.personalmanagementsystem.entity.Employee">
+    update employee
+    set emp_name = #{empName,jdbcType=VARCHAR},
+      emp_hiredate = #{empHiredate,jdbcType=DATE},
+      manager_id = #{managerId,jdbcType=INTEGER}
+    where emp_id = #{empId,jdbcType=INTEGER}
+  </update>
+</mapper>
