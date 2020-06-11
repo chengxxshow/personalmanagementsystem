@@ -8,12 +8,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/user")
 public class UserController {
     @Autowired
    private IUserService  userService;
-
+/*
     @RequestMapping("/login")
     @ResponseBody
     public String login(@RequestBody User lUser){
@@ -26,11 +28,29 @@ public class UserController {
             return "login failure";
         }
 
+    }*/
+
+    @RequestMapping("/login")
+    @ResponseBody
+    public User login(@RequestBody User lUser, HttpSession session){
+        System.out.println("111"+userService);
+        System.out.println(lUser+"---come from front----");
+        User user=userService.getUserBynameandpsw(lUser.getUsername(),lUser.getPassword());
+        System.out.println(user+"---back to front----");
+        // success login in  store current user to session
+        if(user!=null){
+            session.setAttribute("userInfo",user);
+        }
+        return user;
     }
-
-    @RequestMapping("/")
+    @RequestMapping("/loginOut")
+    @ResponseBody
+    public void userloginOut(HttpSession session){
+         session.invalidate();
+       // session.removeAttribute("userInfo");
+       // session.setAttribute("userInfo",null);
+    }
     public String test(){
-
         return "index";
     }
 }
