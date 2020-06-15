@@ -10,6 +10,31 @@
   <sql id="Base_Column_List">
     emp_id, emp_name, emp_hiredate, manager_id
   </sql>
+  <select id="getEmpCount" resultType="int">
+    SELECT count(*) FROM employee
+    <where>
+      <if test="keywords!=null">
+        AND empno LIKE concat('%',#{keywords},'%')
+      </if>
+      <if test="keywords!=null">
+        OR ename LIKE concat('%',#{keywords},'%')
+      </if>
+    </where>
+  </select>
+
+  <select id="getEmpList" resultType="java.util.Map">
+    select a.* ,b.deptname from employee a ,department b
+    WHERE a.deptno = b.deptno
+
+    <if test="keywords!=null">
+      AND ( empno LIKE concat('%',#{keywords},'%')
+    </if>
+    <if test="keywords!=null">
+      OR ename LIKE concat('%',#{keywords},'%') )
+    </if>
+    ORDER BY id DESC limit #{start},#{count};
+  </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

@@ -3,6 +3,7 @@ package com.neuedu.personalmanagementsystem.service;
 import com.neuedu.personalmanagementsystem.entity.User;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IUserService {
     //login
@@ -13,4 +14,5 @@ public interface IUserService {
     public int updateUser(User user);
     //delete a user
     public int delUserbyId(int id);
+
 }

@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
+
 @Mapper
 public interface UserMapper {
     //login
@@ -15,6 +17,7 @@ public interface UserMapper {
     public int updateUser(User user);
     //delete a user
     public int delUserbyId(int id);
+
 
     // ...
 }

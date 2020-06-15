@@ -6,6 +6,8 @@
         SELECT * FROM User
         WHERE UserName=#{uname}  AND  Password =#{psw} limit 0,1;
     </select>
+
+
     <select id="getAllUserBykey" resultType="user">
        SELECT * FROM User
        <where>
