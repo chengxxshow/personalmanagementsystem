@@ -56,11 +56,11 @@
                <columnOverride column="id" javaType="Integer" />
          </table>
 
-		<table tableName="department" domainObjectName="Department"
-			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-			   enableSelectByExample="false" selectByExampleQueryId="false" >
-			<columnOverride column="id" javaType="Integer" />
-		</table>
+<!--		<table tableName="department" domainObjectName="Department"-->
+<!--			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--			   enableSelectByExample="false" selectByExampleQueryId="false" >-->
+<!--			<columnOverride column="id" javaType="Integer" />-->
+<!--		</table>-->
          
 	</context>
 </generatorConfiguration>

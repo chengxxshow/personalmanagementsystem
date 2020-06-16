@@ -3,6 +3,9 @@ package com.neuedu.personalmanagementsystem.mapper;
 import com.neuedu.personalmanagementsystem.entity.Department;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+import java.util.Map;
+
 @Mapper
 public interface DepartmentMapper {
     int deleteByPrimaryKey(Integer id);
@@ -16,4 +19,8 @@ public interface DepartmentMapper {
     int updateByPrimaryKeySelective(Department record);
 
     int updateByPrimaryKey(Department record);
+
+    int getDeptCount(String keywords);
+
+    List<Map<String, Object>> getDeptList(int start, Integer count, String keywords);
 }

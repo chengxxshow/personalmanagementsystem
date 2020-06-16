@@ -1,6 +1,7 @@
 package com.neuedu.personalmanagementsystem.service.impl;
 
 
+import com.neuedu.personalmanagementsystem.entity.Employee;
 import com.neuedu.personalmanagementsystem.mapper.EmployeeMapper;
 import com.neuedu.personalmanagementsystem.service.IEmpService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,10 @@ public class EmpServiceImpl implements IEmpService {
     public List<Map<String, Object>> getEmpList(Integer page, Integer count, String keywords) {
         int start = (page - 1) * count;
         return empMapper.getEmpList(start, count, keywords);
+    }
+
+    @Override
+    public int addEmp(Employee emp) {
+        return empMapper.insertSelective(emp);
     }
 }

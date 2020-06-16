@@ -10,6 +10,30 @@
   <sql id="Base_Column_List">
     id, deptno, deptname, loc
   </sql>
+  <select id="getDeptCount" resultType="int">
+    SELECT count(*) FROM department
+    <where>
+      <if test="keywords!=null">
+        AND deptno LIKE concat('%',#{keywords},'%')
+      </if>
+      <if test="keywords!=null">
+        OR deptname LIKE concat('%',#{keywords},'%')
+      </if>
+    </where>
+  </select>
+
+  <select id="getDeptList" resultType="java.util.Map">
+    select * from department
+
+    <if test="keywords!=null">
+      AND ( deptno LIKE concat('%',#{keywords},'%')
+    </if>
+    <if test="keywords!=null">
+      OR deptname LIKE concat('%',#{keywords},'%') )
+    </if>
+    ORDER BY id DESC limit #{start},#{count};
+  </select>
+
   <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

@@ -1,5 +1,7 @@
 package com.neuedu.personalmanagementsystem.controller;
 
+
+import com.neuedu.personalmanagementsystem.entity.Employee;
 import com.neuedu.personalmanagementsystem.service.IEmpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,5 +29,18 @@ public class EmpController {
         map.put("list", list);
 
         return map;
+    }
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @ResponseBody
+    public String addNewEmp(@RequestBody Employee emp) {
+        System.out.println(emp+"----------j");
+        Map<String, Object> map = new HashMap<>();
+        int result = empService.addEmp(emp);
+        if (result == 1) {
+         return "添加成功!";
+        }else{
+          return "添加失败!";
+        }
+
     }
 }

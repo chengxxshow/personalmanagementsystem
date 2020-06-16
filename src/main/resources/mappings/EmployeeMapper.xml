@@ -2,13 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.neuedu.personalmanagementsystem.mapper.EmployeeMapper">
   <resultMap id="BaseResultMap" type="com.neuedu.personalmanagementsystem.entity.Employee">
-    <id column="emp_id" jdbcType="INTEGER" property="empId" />
-    <result column="emp_name" jdbcType="VARCHAR" property="empName" />
-    <result column="emp_hiredate" jdbcType="DATE" property="empHiredate" />
-    <result column="manager_id" jdbcType="INTEGER" property="managerId" />
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="empno" jdbcType="VARCHAR" property="empno" />
+    <result column="ename" jdbcType="VARCHAR" property="ename" />
+    <result column="hiredate" jdbcType="DATE" property="hiredate" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="job" jdbcType="VARCHAR" property="job" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="deptno" jdbcType="INTEGER" property="deptno" />
+    <result column="departureDate" jdbcType="DATE" property="departuredate" />
+    <result column="eduback" jdbcType="VARCHAR" property="eduback" />
+    <result column="notes" jdbcType="VARCHAR" property="notes" />
   </resultMap>
   <sql id="Base_Column_List">
-    emp_id, emp_name, emp_hiredate, manager_id
+    id, empno, ename, hiredate, birthday, job, gender, status, deptno, departureDate, 
+    eduback, notes
   </sql>
   <select id="getEmpCount" resultType="int">
     SELECT count(*) FROM employee
@@ -41,67 +50,154 @@
     from employee
     where emp_id = #{empId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+
+  <delete id="deleteByPrimaryKey" parameterType="Integer">
     delete from employee
-    where emp_id = #{empId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.neuedu.personalmanagementsystem.entity.Employee">
-    insert into employee (emp_id, emp_name, emp_hiredate, 
-      manager_id)
-    values (#{empId,jdbcType=INTEGER}, #{empName,jdbcType=VARCHAR}, #{empHiredate,jdbcType=DATE}, 
-      #{managerId,jdbcType=INTEGER})
+    insert into employee (id, empno, ename, 
+      hiredate, birthday, job, 
+      gender, status, deptno, 
+      departureDate, eduback, notes
+      )
+    values (#{id,jdbcType=INTEGER}, #{empno,jdbcType=VARCHAR}, #{ename,jdbcType=VARCHAR}, 
+      #{hiredate,jdbcType=DATE}, #{birthday,jdbcType=DATE}, #{job,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{deptno,jdbcType=INTEGER}, 
+      #{departuredate,jdbcType=DATE}, #{eduback,jdbcType=VARCHAR}, #{notes,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.neuedu.personalmanagementsystem.entity.Employee">
     insert into employee
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="empId != null">
-        emp_id,
+      <if test="id != null">
+        id,
       </if>
-      <if test="empName != null">
-        emp_name,
+      <if test="empno != null">
+        empno,
       </if>
-      <if test="empHiredate != null">
-        emp_hiredate,
+      <if test="ename != null">
+        ename,
       </if>
-      <if test="managerId != null">
-        manager_id,
+      <if test="hiredate != null">
+        hiredate,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="job != null">
+        job,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="deptno != null">
+        deptno,
+      </if>
+      <if test="departuredate != null">
+        departureDate,
+      </if>
+      <if test="eduback != null">
+        eduback,
+      </if>
+      <if test="notes != null">
+        notes,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="empId != null">
-        #{empId,jdbcType=INTEGER},
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
       </if>
-      <if test="empName != null">
-        #{empName,jdbcType=VARCHAR},
+      <if test="empno != null">
+        #{empno,jdbcType=VARCHAR},
       </if>
-      <if test="empHiredate != null">
-        #{empHiredate,jdbcType=DATE},
+      <if test="ename != null">
+        #{ename,jdbcType=VARCHAR},
       </if>
-      <if test="managerId != null">
-        #{managerId,jdbcType=INTEGER},
+      <if test="hiredate != null">
+        #{hiredate,jdbcType=DATE},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=DATE},
+      </if>
+      <if test="job != null">
+        #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="deptno != null">
+        #{deptno,jdbcType=INTEGER},
+      </if>
+      <if test="departuredate != null">
+        #{departuredate,jdbcType=DATE},
+      </if>
+      <if test="eduback != null">
+        #{eduback,jdbcType=VARCHAR},
+      </if>
+      <if test="notes != null">
+        #{notes,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.personalmanagementsystem.entity.Employee">
     update employee
     <set>
-      <if test="empName != null">
-        emp_name = #{empName,jdbcType=VARCHAR},
+      <if test="empno != null">
+        empno = #{empno,jdbcType=VARCHAR},
       </if>
-      <if test="empHiredate != null">
-        emp_hiredate = #{empHiredate,jdbcType=DATE},
+      <if test="ename != null">
+        ename = #{ename,jdbcType=VARCHAR},
       </if>
-      <if test="managerId != null">
-        manager_id = #{managerId,jdbcType=INTEGER},
+      <if test="hiredate != null">
+        hiredate = #{hiredate,jdbcType=DATE},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="job != null">
+        job = #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="deptno != null">
+        deptno = #{deptno,jdbcType=INTEGER},
+      </if>
+      <if test="departuredate != null">
+        departureDate = #{departuredate,jdbcType=DATE},
+      </if>
+      <if test="eduback != null">
+        eduback = #{eduback,jdbcType=VARCHAR},
+      </if>
+      <if test="notes != null">
+        notes = #{notes,jdbcType=VARCHAR},
       </if>
     </set>
-    where emp_id = #{empId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.neuedu.personalmanagementsystem.entity.Employee">
     update employee
-    set emp_name = #{empName,jdbcType=VARCHAR},
-      emp_hiredate = #{empHiredate,jdbcType=DATE},
-      manager_id = #{managerId,jdbcType=INTEGER}
-    where emp_id = #{empId,jdbcType=INTEGER}
+    set empno = #{empno,jdbcType=VARCHAR},
+      ename = #{ename,jdbcType=VARCHAR},
+      hiredate = #{hiredate,jdbcType=DATE},
+      birthday = #{birthday,jdbcType=DATE},
+      job = #{job,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      deptno = #{deptno,jdbcType=INTEGER},
+      departureDate = #{departuredate,jdbcType=DATE},
+      eduback = #{eduback,jdbcType=VARCHAR},
+      notes = #{notes,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
