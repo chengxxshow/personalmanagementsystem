@@ -51,6 +51,13 @@
     where emp_id = #{empId,jdbcType=INTEGER}
   </select>
 
+  <delete id="deleteEmpByIds">
+    DELETE FROM employee WHERE id IN
+    <foreach collection="ids" separator="," open="(" close=")" item="id">
+      #{id}
+    </foreach>
+  </delete>
+
   <delete id="deleteByPrimaryKey" parameterType="Integer">
     delete from employee
     where id = #{id,jdbcType=INTEGER}

@@ -43,4 +43,28 @@ public class EmpController {
         }
 
     }
+
+    @RequestMapping(value = "/updateById", method = RequestMethod.POST)
+    @ResponseBody
+    public String updateDepartment(@RequestBody Employee emp) {
+        System.out.println(emp+"----------j");
+        int i = empService.updateEmpById(emp);
+        if (i == 1) {
+            return "修改成功!";
+        }else{
+            return "修改失败!";
+        }
+
+    }
+
+    @RequestMapping(value = "/delById", method = RequestMethod.DELETE)
+    @ResponseBody
+    public String deleteDepartmentById(@RequestParam String ids) {
+        boolean result = empService.deleteEmpByIds(ids);
+        if (result) {
+            return "删除成功";
+        }
+        return "删除失败";
+    }
+
 }

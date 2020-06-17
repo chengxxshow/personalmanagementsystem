@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.neuedu.personalmanagementsystem.entity.Employee;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface EmployeeMapper {
@@ -22,4 +23,7 @@ public interface EmployeeMapper {
     int updateByPrimaryKeySelective(Employee record);
 
     int updateByPrimaryKey(Employee record);
+
+    // 删除
+    int deleteEmpByIds(@Param("ids") String[] ids);
 }

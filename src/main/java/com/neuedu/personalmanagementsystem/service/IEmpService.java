@@ -12,4 +12,8 @@ public interface IEmpService {
     List<Map<String, Object>> getEmpList(Integer page, Integer count, String keywords);
 
     int addEmp(Employee emp);
+
+    int updateEmpById(Employee emp);
+
+    boolean deleteEmpByIds(String ids);
 }

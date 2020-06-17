@@ -29,4 +29,16 @@ public class EmpServiceImpl implements IEmpService {
     public int addEmp(Employee emp) {
         return empMapper.insertSelective(emp);
     }
+
+    @Override
+    public int updateEmpById(Employee emp) {
+        return empMapper.updateByPrimaryKeySelective(emp);
+    }
+
+    @Override
+    public boolean deleteEmpByIds(String ids) {
+        String[] split = ids.split(",");
+        int result = empMapper.deleteEmpByIds(split);
+        return result == split.length;
+    }
 }
