@@ -26,4 +26,6 @@ public interface EmployeeMapper {
 
     // 删除
     int deleteEmpByIds(@Param("ids") String[] ids);
+    //dept删除记录时，级联更新
+    int updateEmpByIds(@Param("ids") String[] ids);
 }

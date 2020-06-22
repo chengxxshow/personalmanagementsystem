@@ -46,7 +46,7 @@ public class EmpController {
 
     @RequestMapping(value = "/updateById", method = RequestMethod.POST)
     @ResponseBody
-    public String updateDepartment(@RequestBody Employee emp) {
+    public String updateEmpById(@RequestBody Employee emp) {
         System.out.println(emp+"----------j");
         int i = empService.updateEmpById(emp);
         if (i == 1) {
@@ -59,7 +59,7 @@ public class EmpController {
 
     @RequestMapping(value = "/delById", method = RequestMethod.DELETE)
     @ResponseBody
-    public String deleteDepartmentById(@RequestParam String ids) {
+    public String deleteEmpById(@RequestParam String ids) {
         boolean result = empService.deleteEmpByIds(ids);
         if (result) {
             return "删除成功";

@@ -10509,3 +10509,72 @@ Unconditional classes:
 2020-06-17 17:52:01.331 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
 2020-06-17 17:52:31.333 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
 2020-06-17 17:52:31.334 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2020-06-17 17:53:01.336 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-06-17 17:53:01.336 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2020-06-17 17:53:31.338 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-06-17 17:53:31.338 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2020-06-17 17:53:53.106 [http-nio-8090-exec-3] DEBUG org.springframework.web.servlet.DispatcherServlet - DELETE "/emp/delById?ids=8", parameters={masked}
+2020-06-17 17:53:53.109 [http-nio-8090-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.neuedu.personalmanagementsystem.controller.EmpController#deleteDepartmentById(String)
+2020-06-17 17:53:53.113 [http-nio-8090-exec-3] DEBUG org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2020-06-17 17:53:53.113 [http-nio-8090-exec-3] DEBUG org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@12f74b9] was not registered for synchronization because synchronization is not active
+2020-06-17 17:53:53.114 [http-nio-8090-exec-3] DEBUG o.springframework.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2020-06-17 17:53:53.116 [http-nio-8090-exec-3] DEBUG o.m.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@10097879 wrapping com.mysql.cj.jdbc.ConnectionImpl@df4c3a] will not be managed by Spring
+2020-06-17 17:53:53.117 [http-nio-8090-exec-3] DEBUG c.n.p.mapper.EmployeeMapper.deleteEmpByIds - ==>  Preparing: DELETE FROM employee WHERE id IN ( ? ) 
+2020-06-17 17:53:53.118 [http-nio-8090-exec-3] DEBUG c.n.p.mapper.EmployeeMapper.deleteEmpByIds - ==> Parameters: 8(String)
+2020-06-17 17:53:53.125 [http-nio-8090-exec-3] DEBUG c.n.p.mapper.EmployeeMapper.deleteEmpByIds - <==    Updates: 1
+2020-06-17 17:53:53.126 [http-nio-8090-exec-3] DEBUG org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@12f74b9]
+2020-06-17 17:53:53.128 [http-nio-8090-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2020-06-17 17:53:53.129 [http-nio-8090-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing ["删除成功"]
+2020-06-17 17:53:53.131 [http-nio-8090-exec-3] DEBUG org.springframework.web.servlet.DispatcherServlet - Completed 200 OK
+2020-06-17 17:53:53.181 [http-nio-8090-exec-5] DEBUG org.springframework.web.servlet.DispatcherServlet - GET "/emp/all?page=1&count=100", parameters={masked}
+2020-06-17 17:53:53.182 [http-nio-8090-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.neuedu.personalmanagementsystem.controller.EmpController#getUserList(Integer, Integer, String)
+2020-06-17 17:53:53.183 [http-nio-8090-exec-5] DEBUG org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2020-06-17 17:53:53.184 [http-nio-8090-exec-5] DEBUG org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@b2ca6b] was not registered for synchronization because synchronization is not active
+2020-06-17 17:53:53.184 [http-nio-8090-exec-5] DEBUG o.springframework.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2020-06-17 17:53:53.185 [http-nio-8090-exec-5] DEBUG o.m.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@7679501 wrapping com.mysql.cj.jdbc.ConnectionImpl@df4c3a] will not be managed by Spring
+2020-06-17 17:53:53.185 [http-nio-8090-exec-5] DEBUG c.n.p.mapper.EmployeeMapper.getEmpCount - ==>  Preparing: SELECT count(*) FROM employee 
+2020-06-17 17:53:53.185 [http-nio-8090-exec-6] DEBUG org.springframework.web.servlet.DispatcherServlet - GET "/dept/all", parameters={}
+2020-06-17 17:53:53.186 [http-nio-8090-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.neuedu.personalmanagementsystem.controller.DeptController#getDeptList(Integer, Integer, String)
+2020-06-17 17:53:53.187 [http-nio-8090-exec-6] DEBUG org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2020-06-17 17:53:53.188 [http-nio-8090-exec-6] DEBUG org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@17c6d31] was not registered for synchronization because synchronization is not active
+2020-06-17 17:53:53.186 [http-nio-8090-exec-5] DEBUG c.n.p.mapper.EmployeeMapper.getEmpCount - ==> Parameters: 
+2020-06-17 17:53:53.188 [http-nio-8090-exec-6] DEBUG o.springframework.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2020-06-17 17:53:53.189 [http-nio-8090-exec-6] DEBUG o.m.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@29066158 wrapping com.mysql.cj.jdbc.ConnectionImpl@14ea5d9] will not be managed by Spring
+2020-06-17 17:53:53.191 [http-nio-8090-exec-5] DEBUG c.n.p.mapper.EmployeeMapper.getEmpCount - <==      Total: 1
+2020-06-17 17:53:53.191 [http-nio-8090-exec-6] DEBUG c.n.p.mapper.DepartmentMapper.getDeptCount - ==>  Preparing: SELECT count(*) FROM department 
+2020-06-17 17:53:53.192 [http-nio-8090-exec-5] DEBUG org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@b2ca6b]
+2020-06-17 17:53:53.192 [http-nio-8090-exec-5] DEBUG org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2020-06-17 17:53:53.193 [http-nio-8090-exec-5] DEBUG org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1482436] was not registered for synchronization because synchronization is not active
+2020-06-17 17:53:53.193 [http-nio-8090-exec-6] DEBUG c.n.p.mapper.DepartmentMapper.getDeptCount - ==> Parameters: 
+2020-06-17 17:53:53.193 [http-nio-8090-exec-5] DEBUG o.springframework.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2020-06-17 17:53:53.194 [http-nio-8090-exec-5] DEBUG o.m.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@32461862 wrapping com.mysql.cj.jdbc.ConnectionImpl@df4c3a] will not be managed by Spring
+2020-06-17 17:53:53.194 [http-nio-8090-exec-5] DEBUG c.n.p.mapper.EmployeeMapper.getEmpList - ==>  Preparing: select a.* ,b.deptname from employee a ,department b WHERE a.deptno = b.deptno ORDER BY id DESC limit ?,?; 
+2020-06-17 17:53:53.196 [http-nio-8090-exec-6] DEBUG c.n.p.mapper.DepartmentMapper.getDeptCount - <==      Total: 1
+2020-06-17 17:53:53.198 [http-nio-8090-exec-6] DEBUG org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@17c6d31]
+2020-06-17 17:53:53.199 [http-nio-8090-exec-6] DEBUG org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2020-06-17 17:53:53.199 [http-nio-8090-exec-5] DEBUG c.n.p.mapper.EmployeeMapper.getEmpList - ==> Parameters: 0(Integer), 100(Integer)
+2020-06-17 17:53:53.199 [http-nio-8090-exec-6] DEBUG org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a976da] was not registered for synchronization because synchronization is not active
+2020-06-17 17:53:53.201 [http-nio-8090-exec-6] DEBUG o.springframework.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2020-06-17 17:53:53.202 [http-nio-8090-exec-6] DEBUG o.m.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@21753446 wrapping com.mysql.cj.jdbc.ConnectionImpl@14ea5d9] will not be managed by Spring
+2020-06-17 17:53:53.202 [http-nio-8090-exec-6] DEBUG c.n.p.mapper.DepartmentMapper.getDeptList - ==>  Preparing: select * from department ORDER BY id DESC limit ?,?; 
+2020-06-17 17:53:53.204 [http-nio-8090-exec-6] DEBUG c.n.p.mapper.DepartmentMapper.getDeptList - ==> Parameters: 0(Integer), 10(Integer)
+2020-06-17 17:53:53.211 [http-nio-8090-exec-5] DEBUG c.n.p.mapper.EmployeeMapper.getEmpList - <==      Total: 7
+2020-06-17 17:53:53.212 [http-nio-8090-exec-5] DEBUG org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1482436]
+2020-06-17 17:53:53.211 [http-nio-8090-exec-6] DEBUG c.n.p.mapper.DepartmentMapper.getDeptList - <==      Total: 5
+2020-06-17 17:53:53.213 [http-nio-8090-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2020-06-17 17:53:53.215 [http-nio-8090-exec-6] DEBUG org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a976da]
+2020-06-17 17:53:53.216 [http-nio-8090-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2020-06-17 17:53:53.217 [http-nio-8090-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [{totalCount=5, list=[{loc=哈尔滨, id=5, deptno=50, deptname=综合部}, {loc=大连, id=4, deptno=40, deptname=销售 (truncated)...]
+2020-06-17 17:53:53.217 [http-nio-8090-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [{totalCount=7, list=[{birthday=2020-06-01, ename=程某某, notes=1111111, gender=0, eduback=2, id=7, empn (truncated)...]
+2020-06-17 17:53:53.219 [http-nio-8090-exec-6] DEBUG org.springframework.web.servlet.DispatcherServlet - Completed 200 OK
+2020-06-17 17:53:53.223 [http-nio-8090-exec-5] DEBUG org.springframework.web.servlet.DispatcherServlet - Completed 200 OK
+2020-06-17 17:54:01.341 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-06-17 17:54:01.343 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2020-06-17 17:54:31.344 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-06-17 17:54:31.344 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2020-06-17 17:55:01.346 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-06-17 17:55:01.346 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2020-06-17 17:55:31.348 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-06-17 17:55:31.348 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2020-06-17 17:56:01.351 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-06-17 17:56:01.352 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.

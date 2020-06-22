@@ -2,6 +2,7 @@ package com.neuedu.personalmanagementsystem.mapper;
 
 import com.neuedu.personalmanagementsystem.entity.Department;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -23,4 +24,6 @@ public interface DepartmentMapper {
     int getDeptCount(String keywords);
 
     List<Map<String, Object>> getDeptList(int start, Integer count, String keywords);
+
+    int deleteDeptByIds(@Param("ids") String[] ids);
 }

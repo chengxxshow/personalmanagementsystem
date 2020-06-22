@@ -32,8 +32,8 @@
   </select>
 
   <select id="getEmpList" resultType="java.util.Map">
-    select a.* ,b.deptname from employee a ,department b
-    WHERE a.deptno = b.deptno
+    select a.* ,b.deptname from employee a left join department b
+    on a.deptno = b.deptno
 
     <if test="keywords!=null">
       AND ( empno LIKE concat('%',#{keywords},'%')
@@ -58,6 +58,13 @@
     </foreach>
   </delete>
 
+  <update id="updateEmpByIds">
+    update employee set deptno=null WHERE deptno IN
+    ( SELECT deptno from department  WHERE id in
+      <foreach collection="ids" separator="," open="(" close=")" item="id">#{id}
+      </foreach>
+     )
+  </update>
   <delete id="deleteByPrimaryKey" parameterType="Integer">
     delete from employee
     where id = #{id,jdbcType=INTEGER}

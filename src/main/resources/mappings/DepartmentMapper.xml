@@ -14,7 +14,7 @@
     SELECT count(*) FROM department
     <where>
       <if test="keywords!=null">
-        AND deptno LIKE concat('%',#{keywords},'%')
+         deptno =#{keywords}
       </if>
       <if test="keywords!=null">
         OR deptname LIKE concat('%',#{keywords},'%')
@@ -24,13 +24,14 @@
 
   <select id="getDeptList" resultType="java.util.Map">
     select * from department
-
-    <if test="keywords!=null">
-      AND ( deptno LIKE concat('%',#{keywords},'%')
-    </if>
-    <if test="keywords!=null">
-      OR deptname LIKE concat('%',#{keywords},'%') )
-    </if>
+    <where>
+      <if test="keywords!=null">
+        deptno =#{keywords}
+      </if>
+      <if test="keywords!=null">
+        OR deptname LIKE concat('%',#{keywords},'%')
+      </if>
+    </where>
     ORDER BY id DESC limit #{start},#{count};
   </select>
 
@@ -40,6 +41,12 @@
     from department
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <delete id="deleteDeptByIds">
+    DELETE FROM department WHERE id IN
+    <foreach collection="ids" separator="," open="(" close=")" item="id">
+      #{id}
+    </foreach>
+  </delete>
   <delete id="deleteByPrimaryKey" parameterType="Integer">
     delete from department
     where id = #{id,jdbcType=INTEGER}
